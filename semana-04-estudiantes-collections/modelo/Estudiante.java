@@ -16,7 +16,7 @@ public class Estudiante implements Comparable<Estudiante> {
 
     @Override
     public int compareTo(Estudiante otro) {
-        // Si los promedios son iguales, desempata por carnet
+
         int cmp = Double.compare(this.promedio, otro.promedio);
         if (cmp == 0) return this.carnet.compareTo(otro.carnet);
         return cmp;

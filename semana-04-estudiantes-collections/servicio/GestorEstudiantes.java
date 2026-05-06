@@ -19,7 +19,7 @@ public class GestorEstudiantes {
 
     public boolean agregar(Estudiante e) {
         if (porCarnet.containsKey(e.getCarnet())) {
-            return false; // Carnet duplicado
+            return false; 
         }
         porCarnet.put(e.getCarnet(), e);
         ranking.add(e);
@@ -28,7 +28,7 @@ public class GestorEstudiantes {
     }
 
     public Estudiante buscar(String carnet) {
-        return porCarnet.get(carnet); // null si no existe
+        return porCarnet.get(carnet);
     }
 
     public boolean actualizarPromedio(String carnet, double nuevoProm) {
