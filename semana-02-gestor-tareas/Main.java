@@ -1,4 +1,3 @@
-```java
 import servicio.GestorTareas;
 import java.util.Scanner;
 

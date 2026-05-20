@@ -1,9 +1,8 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-public class Main {
+public class Main{
 
-    // Constantes del programa
     static final int ESTUDIANTES = 5;
     static final int NOTAS = 3;
 
