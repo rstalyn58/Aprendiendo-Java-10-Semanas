@@ -1,4 +1,4 @@
-package semana-03-vehiculos-poo.servicio;
+package modelo;
 
 public abstract class Vehiculo {
 

@@ -1,5 +1,3 @@
-package semana-02-gestor-tareas.modelo;
-
 public class Estudiante {
 
     private String nombre;

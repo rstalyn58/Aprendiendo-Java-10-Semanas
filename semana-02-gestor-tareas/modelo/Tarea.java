@@ -1,4 +1,3 @@
-package semana-02-gestor-tareas.modelo;
 package modelo;
 
 public class Tarea {

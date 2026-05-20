@@ -1,10 +1,16 @@
-package semana-03-vehiculos-poo.modelo;
+package modelo;
 
-public class AutoElectrico extends Auto implements Electrico {
+public class AutoElectrico extends Auto
+        implements Electrico {
 
     private int nivelBateria;
 
-    public AutoElectrico(String marca, String modelo, int anio, int puertas, int bateria) {
+    public AutoElectrico(String marca,
+                         String modelo,
+                         int anio,
+                         int puertas,
+                         int bateria) {
+
         super(marca, modelo, anio, puertas);
         this.nivelBateria = bateria;
     }
@@ -12,7 +18,9 @@ public class AutoElectrico extends Auto implements Electrico {
     @Override
     public void cargarBateria() {
         nivelBateria = 100;
-        System.out.println(marca + " cargado al 100%.");
+
+        System.out.println(marca
+                + " cargado al 100%.");
     }
 
     @Override
@@ -27,11 +35,20 @@ public class AutoElectrico extends Auto implements Electrico {
 
     @Override
     public void acelerar() {
+
         if (nivelBateria > 0) {
+
             nivelBateria -= 5;
-            System.out.println(marca + " (electrico) acelera. Bateria: " + nivelBateria + "%");
+
+            System.out.println(marca
+                    + " (electrico) acelera. "
+                    + "Bateria: "
+                    + nivelBateria + "%");
+
         } else {
-            System.out.println(marca + " sin bateria, no puede acelerar.");
+
+            System.out.println(marca
+                    + " sin bateria.");
         }
     }
 }

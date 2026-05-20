@@ -1,4 +1,4 @@
-package semana-04-estudiantes-collections.modelo;
+package modelo;
 
 public class Estudiante implements Comparable<Estudiante> {
 
@@ -16,16 +16,30 @@ public class Estudiante implements Comparable<Estudiante> {
 
     @Override
     public int compareTo(Estudiante otro) {
-
         int cmp = Double.compare(this.promedio, otro.promedio);
-        if (cmp == 0) return this.carnet.compareTo(otro.carnet);
+
+        if (cmp == 0) {
+            return this.carnet.compareTo(otro.carnet);
+        }
+
         return cmp;
     }
 
-    public String getCarnet() { return carnet; }
-    public String getNombre() { return nombre; }
-    public String getCarrera() { return carrera; }
-    public double getPromedio() { return promedio; }
+    public String getCarnet() {
+        return carnet;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public double getPromedio() {
+        return promedio;
+    }
 
     public void setPromedio(double promedio) {
         if (promedio >= 0 && promedio <= 100) {

@@ -1,10 +1,15 @@
-package semana-03-vehiculos-poo.servicio;
+package modelo;
 
-public class MotoElectrica extends Moto implements Electrico {
+public class MotoElectrica extends Moto
+        implements Electrico {
 
     private int nivelBateria;
 
-    public MotoElectrica(String marca, String modelo, int anio, int bateria) {
+    public MotoElectrica(String marca,
+                         String modelo,
+                         int anio,
+                         int bateria) {
+
         super(marca, modelo, anio, false);
         this.nivelBateria = bateria;
     }
@@ -12,7 +17,9 @@ public class MotoElectrica extends Moto implements Electrico {
     @Override
     public void cargarBateria() {
         nivelBateria = 100;
-        System.out.println(marca + " (moto electrica) cargada.");
+
+        System.out.println(marca
+                + " (moto electrica) cargada.");
     }
 
     @Override
@@ -27,7 +34,20 @@ public class MotoElectrica extends Moto implements Electrico {
 
     @Override
     public void acelerar() {
-        nivelBateria -= 3;
-        System.out.println(marca + " (moto electrica) acelera. Bateria: " + nivelBateria + "%");
+
+        if (nivelBateria > 0) {
+
+            nivelBateria -= 3;
+
+            System.out.println(marca
+                    + " (moto electrica) acelera. "
+                    + "Bateria: "
+                    + nivelBateria + "%");
+
+        } else {
+
+            System.out.println(marca
+                    + " sin bateria.");
+        }
     }
 }

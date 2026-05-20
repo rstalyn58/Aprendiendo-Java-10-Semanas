@@ -1,5 +1,5 @@
-package semana-02-gestor-tareas.servicio;
 package servicio;
+
 import modelo.Tarea;
 import java.util.ArrayList;
 

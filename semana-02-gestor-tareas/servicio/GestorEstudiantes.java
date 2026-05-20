@@ -1,4 +1,3 @@
-package semana-02-gestor-tareas.servicio;
 package servicio;
 
 import modelo.Estudiante;

@@ -1,5 +1,3 @@
-package semana-02-gestor-tareas.util;
-
 package util;
 
 public class Validador {

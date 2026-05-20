@@ -1,5 +1,3 @@
-package semana-04-estudiantes-collections;
-
 import modelo.Estudiante;
 import servicio.GestorEstudiantes;
 import java.util.Scanner;

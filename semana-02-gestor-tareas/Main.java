@@ -12,7 +12,7 @@ public class Main {
         do {
             mostrarMenu();
             opcion = scanner.nextInt();
-            scanner.nextLine(); // limpiar buffer
+            scanner.nextLine();
 
             switch (opcion) {
                 case 1:

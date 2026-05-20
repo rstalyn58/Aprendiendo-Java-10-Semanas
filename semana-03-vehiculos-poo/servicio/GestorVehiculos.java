@@ -1,5 +1,3 @@
-package semana-03-vehiculos-poo.servicio;
-
 package servicio;
 
 import modelo.*;
@@ -10,18 +8,25 @@ public class GestorVehiculos {
     private ArrayList<Vehiculo> vehiculos;
 
     public GestorVehiculos() {
-        this.vehiculos = new ArrayList<>();
+        vehiculos = new ArrayList<>();
     }
 
     public void agregar(Vehiculo v) {
         vehiculos.add(v);
-        System.out.println("Agregado: " + v.getInfo());
+        System.out.println("Agregado: "
+                + v.getInfo());
     }
 
     public void listarTodos() {
-        System.out.println("\n=== Toda la flota ===");
+
+        System.out.println(
+                "\n=== Toda la flota ===");
+
         if (vehiculos.isEmpty()) {
-            System.out.println("Sin vehiculos registrados.");
+
+            System.out.println(
+                    "Sin vehiculos registrados.");
+
             return;
         }
 
@@ -31,7 +36,13 @@ public class GestorVehiculos {
     }
 
     public void listarPorTipo(String tipo) {
-        System.out.println("\n=== Tipo: " + tipo + " ===");
+
+        System.out.println(
+                "\n=== Tipo: "
+                + tipo
+                + " ===");
+
+        boolean encontrado = false;
 
         for (Vehiculo v : vehiculos) {
 
@@ -40,58 +51,92 @@ public class GestorVehiculos {
             if (tipo.equalsIgnoreCase("auto")
                     && v instanceof Auto
                     && !(v instanceof AutoElectrico)) {
+
                 mostrar = true;
             }
 
             if (tipo.equalsIgnoreCase("moto")
                     && v instanceof Moto
                     && !(v instanceof MotoElectrica)) {
+
                 mostrar = true;
             }
 
             if (tipo.equalsIgnoreCase("camion")
                     && v instanceof Camion) {
+
                 mostrar = true;
             }
 
             if (tipo.equalsIgnoreCase("electrico")
                     && v instanceof Electrico) {
+
                 mostrar = true;
             }
 
             if (mostrar) {
-                System.out.println(v.getInfo());
+                System.out.println(
+                        v.getInfo());
+
+                encontrado = true;
             }
+        }
+
+        if (!encontrado) {
+            System.out.println(
+                    "No hay vehiculos.");
         }
     }
 
     public void listarElectricos() {
-        System.out.println("\n=== Vehiculos electricos ===");
+
+        System.out.println(
+                "\n=== Vehiculos electricos ===");
 
         boolean hay = false;
 
         for (Vehiculo v : vehiculos) {
+
             if (v instanceof Electrico) {
-                Electrico e = (Electrico) v;
-                System.out.println(v.getInfo() + " | Bateria: " + e.getNivelBateria() + "%");
+
+                Electrico e =
+                        (Electrico) v;
+
+                System.out.println(
+                        v.getInfo()
+                        + " | Bateria: "
+                        + e.getNivelBateria()
+                        + "%");
+
                 hay = true;
             }
         }
 
         if (!hay) {
-            System.out.println("Sin vehiculos electricos.");
+
+            System.out.println(
+                    "Sin vehiculos electricos.");
         }
     }
 
     public void cargarElectricosNecesarios() {
-        System.out.println("\n=== Verificando baterias ===");
+
+        System.out.println(
+                "\n=== Verificando baterias ===");
 
         for (Vehiculo v : vehiculos) {
+
             if (v instanceof Electrico) {
-                Electrico e = (Electrico) v;
+
+                Electrico e =
+                        (Electrico) v;
 
                 if (e.necesitaCarga()) {
-                    System.out.print(v.getInfo() + " -> ");
+
+                    System.out.print(
+                            v.getInfo()
+                            + " -> ");
+
                     e.cargarBateria();
                 }
             }
@@ -99,7 +144,9 @@ public class GestorVehiculos {
     }
 
     public void demostrarPolimorfismo() {
-        System.out.println("\n=== acelerar() en toda la flota ===");
+
+        System.out.println(
+                "\n=== acelerar() ===");
 
         for (Vehiculo v : vehiculos) {
             v.acelerar();
@@ -107,24 +154,41 @@ public class GestorVehiculos {
     }
 
     public void mostrarEstadisticas() {
-        int total = vehiculos.size();
+
+        int total =
+                vehiculos.size();
+
         int electricos = 0;
         int necesitan = 0;
 
         for (Vehiculo v : vehiculos) {
+
             if (v instanceof Electrico) {
+
                 electricos++;
 
-                if (((Electrico) v).necesitaCarga()) {
+                if (((Electrico) v)
+                        .necesitaCarga()) {
+
                     necesitan++;
                 }
             }
         }
 
-        System.out.println("\n=== Estadisticas ===");
-        System.out.println("Total vehiculos: " + total);
-        System.out.println("Electricos: " + electricos);
-        System.out.println("Necesitan carga: " + necesitan);
+        System.out.println(
+                "\n=== Estadisticas ===");
+
+        System.out.println(
+                "Total vehiculos: "
+                + total);
+
+        System.out.println(
+                "Electricos: "
+                + electricos);
+
+        System.out.println(
+                "Necesitan carga: "
+                + necesitan);
     }
 
     public int getTotalVehiculos() {

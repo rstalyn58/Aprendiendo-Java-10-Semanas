@@ -1,4 +1,4 @@
-package semana-04-estudiantes-collections.servicio;
+package servicio;
 
 import modelo.Estudiante;
 import java.util.HashMap;
@@ -19,11 +19,13 @@ public class GestorEstudiantes {
 
     public boolean agregar(Estudiante e) {
         if (porCarnet.containsKey(e.getCarnet())) {
-            return false; 
+            return false;
         }
+
         porCarnet.put(e.getCarnet(), e);
         ranking.add(e);
         historial.add("AGREGAR: " + e.getCarnet() + " - " + e.getNombre());
+
         return true;
     }
 
@@ -33,28 +35,38 @@ public class GestorEstudiantes {
 
     public boolean actualizarPromedio(String carnet, double nuevoProm) {
         Estudiante e = porCarnet.get(carnet);
-        if (e == null) return false;
+
+        if (e == null) {
+            return false;
+        }
 
         ranking.remove(e);
         e.setPromedio(nuevoProm);
         ranking.add(e);
 
         historial.add("ACTUALIZAR: " + carnet + " promedio -> " + nuevoProm);
+
         return true;
     }
 
     public boolean eliminar(String carnet) {
         Estudiante e = porCarnet.remove(carnet);
-        if (e == null) return false;
+
+        if (e == null) {
+            return false;
+        }
 
         ranking.remove(e);
         historial.add("ELIMINAR: " + carnet + " - " + e.getNombre());
+
         return true;
     }
 
     public void mostrarRanking() {
         System.out.println("\n=== Ranking de estudiantes ===");
+
         int pos = 1;
+
         for (Estudiante e : ranking) {
             System.out.printf("%3d. %s%n", pos++, e);
         }
@@ -62,6 +74,7 @@ public class GestorEstudiantes {
 
     public void mostrarTop5() {
         System.out.println("\n=== Top 5 estudiantes ===");
+
         int count = 0;
 
         Estudiante[] arr = ranking.toArray(new Estudiante[0]);
@@ -74,6 +87,7 @@ public class GestorEstudiantes {
 
     public void filtrarPorCarrera(String carrera) {
         System.out.println("\n=== Carrera: " + carrera + " ===");
+
         boolean hayAlguno = false;
 
         for (Estudiante e : porCarnet.values()) {
@@ -95,6 +109,7 @@ public class GestorEstudiantes {
         }
 
         double suma = 0;
+
         for (Estudiante e : ranking) {
             suma += e.getPromedio();
         }
